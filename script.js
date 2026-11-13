@@ -40,3 +40,21 @@ runBtn.addEventListener("click", function () {
   }  
   result.textContent = message;
 });
+
+let hasKey = true;
+let doorLocked = true;
+
+runBtn.addEventListener("click", function() {
+    const canOpen = hasKey === true;
+    result.textContent = "Can open: " + canOpen;
+    console.log("Door locked?", doorLocked);
+});
+
+let hascode = false;
+
+runBtn.addEventListener("click", function() {
+    const canEnter = (hasKey || hasCode) && doorLocked;
+    result.textContent = canEnter
+    ? "You can unlock the door."
+    : "You cannot unlock the door.";
+});
